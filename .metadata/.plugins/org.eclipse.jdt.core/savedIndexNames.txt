@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+C:\Users\aooled-ping\Documents\GitHub\BusinessChat\.metadata\.plugins\org.eclipse.jdt.core
+3910639745.index
