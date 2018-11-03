@@ -15,27 +15,31 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class Login extends JPanel{
-	private JFrame jf;
+	private JFrame jf = new JFrame("µÇÂ½");
 	private GridBagLayout gbl = new GridBagLayout();
-	private JButton but;
-	private JLabel jl_username;
-	private JLabel jl_password;
-	private JTextArea jta;
-	private JPasswordField jpf;
+	private JButton jb_submit = new JButton("µÇÂ½");
+	private JLabel jl_username = new JLabel("ÓÃ»§Ãû:");
+	private JLabel jl_password = new JLabel("ÃÜ Âë:");
+	private JTextField jtf_username = new JTextField(16);
+	private JPasswordField jpf_password = new JPasswordField(16);
 	
 	public Login() {
 		super();
 		GridBagConstraints constraints;
 		setLayout(gbl);
-		
-		jl_username = new JLabel("ÓÃ»§Ãû");
-		addComponent(jl_username,0,0,1,1,10,100,GridBagConstraints.NONE, GridBagConstraints.CENTER);
+
+		addComponent(jl_username,0,0,1,1,10,100,GridBagConstraints.NONE, GridBagConstraints.EAST);
+		addComponent(jtf_username,1,0,1,1,10,100,GridBagConstraints.NONE, GridBagConstraints.WEST);
+		addComponent(jl_password,0,1,1,1,10,100,GridBagConstraints.NONE, GridBagConstraints.EAST);
+		addComponent(jpf_password,1,1,1,1,10,100,GridBagConstraints.NONE, GridBagConstraints.WEST);
+		addComponent(jb_submit,1,2,1,1,10,100,GridBagConstraints.NONE, GridBagConstraints.WEST);
 		Button but = new Button("µÇÂ¼");
-		jf = new JFrame("µÇÂ½");
-		jf.setBounds(0, 0, 1000, 300);
+		jf.setBounds(0, 0, 320, 120);
 		jf.setContentPane(this);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf.setVisible(true);
 
 	}
