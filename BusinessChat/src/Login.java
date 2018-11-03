@@ -1,5 +1,6 @@
 
 import java.awt.Button;
+import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
@@ -28,26 +29,18 @@ public class Login extends JPanel{
 		super();
 		GridBagConstraints constraints;
 		setLayout(gbl);
+		
 		jl_username = new JLabel("ÓÃ»§Ãû");
-		addComponent(jl_username,0,0,1,1,10,100,GridBagConstraints.NONE, GridBagConstraints.EAST);
-		f.setBounds(400, 200, 500, 400);
-		f.setLayout(new FlowLayout());
+		addComponent(jl_username,0,0,1,1,10,100,GridBagConstraints.NONE, GridBagConstraints.CENTER);
 		Button but = new Button("µÇÂ¼");
-		f.add(but);
-		f.addWindowListener(new WindowAdapter() {
+		jf = new JFrame("µÇÂ½");
+		jf.setBounds(0, 0, 1000, 300);
+		jf.setContentPane(this);
+		jf.setVisible(true);
 
-			@Override
-			public void windowClosing(WindowEvent arg0) {
-				// TODO Auto-generated method stub
-//				super.windowClosing(arg0);
-				System.exit(0);
-			}
-			
-		});
-		f.setVisible(true);
 	}
 
-	private void addComponent(JLabel jl_username2, int gridx, int gridy, int gridwidth, int gridheight, int weightx, int heighty, int fill, int anchor) {
+	private void addComponent(Component component, int gridx, int gridy, int gridwidth, int gridheight, int weightx, int heighty, int fill, int anchor) {
 		GridBagConstraints constraints = new GridBagConstraints();
 		
 		constraints.gridx = gridx;
@@ -58,7 +51,8 @@ public class Login extends JPanel{
 		constraints.weighty = heighty;
 		constraints.fill = fill;
 		constraints.anchor = anchor;
-		gridbag.setConstraints(component, constraints);
+		gbl.setConstraints(component, constraints);
+		add(component);
 	}
 	
 }
