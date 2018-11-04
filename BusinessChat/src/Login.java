@@ -6,12 +6,15 @@ import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
@@ -40,8 +43,27 @@ public class Login extends JPanel{
 		jf.setBounds(0, 0, 320, 120);
 		jf.setContentPane(this);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jf.setResizable(false);
+//		jf.setDefaultLookAndFeelDecorated(true);
 		jf.setVisible(true);
-
+		jb_submit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				if(jtf_username.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "请输入用户名!");
+					return;
+				}
+				if(jpf_password.getPassword().length == 0) {
+					JOptionPane.showMessageDialog(null, "请输入密码");
+					return;
+				}
+				
+				System.out.println(jpf_password.getPassword());
+					
+			}
+		});
 	}
 
 	private void addComponent(Component component, int gridx, int gridy, int gridwidth, int gridheight, int weightx, int heighty, int fill, int anchor) {
