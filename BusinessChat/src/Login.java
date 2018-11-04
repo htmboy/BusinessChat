@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.xml.transform.TransformerException;
 
 public class Login extends JPanel{
 	private JFrame jf = new JFrame("µ«¬Ω");
@@ -58,6 +60,17 @@ public class Login extends JPanel{
 				if(jpf_password.getPassword().length == 0) {
 					JOptionPane.showMessageDialog(null, "«Î ‰»Î√‹¬Î");
 					return;
+				}
+				try {
+					Sender.toXml(jtf_username.getText(),jpf_password.getPassword().toString());
+					Sender.sendTo();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+					catch (TransformerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 				
 				System.out.println(jpf_password.getPassword());
