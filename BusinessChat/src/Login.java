@@ -22,8 +22,11 @@ import javax.swing.JTextArea;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import javax.swing.JTextField;
 import javax.xml.transform.TransformerException;
+=======
+>>>>>>> parent of 6b5a536... 201811131
 =======
 >>>>>>> parent of 6b5a536... 201811131
 =======
@@ -54,9 +57,12 @@ public class Login extends JPanel{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf.setResizable(false);
 //		jf.setDefaultLookAndFeelDecorated(true);
+=======
+>>>>>>> parent of 6b5a536... 201811131
 =======
 >>>>>>> parent of 6b5a536... 201811131
 =======
