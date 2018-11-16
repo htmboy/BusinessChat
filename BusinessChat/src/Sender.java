@@ -8,16 +8,11 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.PrintStream;
 import java.net.MalformedURLException;
-import java.net.Socket;
 import java.net.URL;
 import java.net.URLConnection;
-import java.net.UnknownHostException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -70,7 +65,7 @@ public class Sender {
 	
 	public static void sendTo() throws IOException {
 		try {
-			URL url = new URL("http://139.199.77.144:8079");
+			URL url = new URL("http://139.199.77.144:8080");
 			URLConnection con = url.openConnection();
 			con.setDoOutput(true);
 			con.setRequestProperty("Pragma", "no-cache");
@@ -102,6 +97,7 @@ public class Sender {
 		}
 		
 	}
+<<<<<<< HEAD
 	
 	public static void sendTo2() throws UnknownHostException, IOException {
 		Socket s = new Socket("139.199.77.144", 5542);
@@ -123,4 +119,6 @@ public class Sender {
 		
 		s.close();
 	}
+=======
+>>>>>>> parent of bb7e3be... 20181116
 }
