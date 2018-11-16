@@ -19,34 +19,56 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 import javax.swing.JTextField;
 import javax.xml.transform.TransformerException;
+=======
+>>>>>>> parent of 6b5a536... 201811131
+=======
+>>>>>>> parent of 6b5a536... 201811131
+=======
+>>>>>>> parent of 6b5a536... 201811131
+=======
+>>>>>>> parent of 6b5a536... 201811131
 
 public class Login extends JPanel{
-	private JFrame jf = new JFrame("µÇÂ½");
+	private JFrame jf;
 	private GridBagLayout gbl = new GridBagLayout();
-	private JButton jb_submit = new JButton("µÇÂ½");
-	private JLabel jl_username = new JLabel("ÓÃ»§Ãû:");
-	private JLabel jl_password = new JLabel("ÃÜ Âë:");
-	private JTextField jtf_username = new JTextField(16);
-	private JPasswordField jpf_password = new JPasswordField(16);
+	private JButton but;
+	private JLabel jl_username;
+	private JLabel jl_password;
+	private JTextArea jta;
+	private JPasswordField jpf;
 	
 	public Login() {
 		super();
 		GridBagConstraints constraints;
 		setLayout(gbl);
-
-		addComponent(jl_username,0,0,1,1,10,100,GridBagConstraints.NONE, GridBagConstraints.EAST);
-		addComponent(jtf_username,1,0,1,1,10,100,GridBagConstraints.NONE, GridBagConstraints.WEST);
-		addComponent(jl_password,0,1,1,1,10,100,GridBagConstraints.NONE, GridBagConstraints.EAST);
-		addComponent(jpf_password,1,1,1,1,10,100,GridBagConstraints.NONE, GridBagConstraints.WEST);
-		addComponent(jb_submit,1,2,1,1,10,100,GridBagConstraints.NONE, GridBagConstraints.WEST);
+		
+		jl_username = new JLabel("ÓÃ»§Ãû");
+		addComponent(jl_username,0,0,1,1,10,100,GridBagConstraints.NONE, GridBagConstraints.CENTER);
 		Button but = new Button("µÇÂ¼");
-		jf.setBounds(0, 0, 320, 120);
+		jf = new JFrame("µÇÂ½");
+		jf.setBounds(0, 0, 1000, 300);
 		jf.setContentPane(this);
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf.setResizable(false);
 //		jf.setDefaultLookAndFeelDecorated(true);
+=======
+>>>>>>> parent of 6b5a536... 201811131
+=======
+>>>>>>> parent of 6b5a536... 201811131
+=======
+>>>>>>> parent of 6b5a536... 201811131
+=======
+>>>>>>> parent of 6b5a536... 201811131
 		jf.setVisible(true);
 		jb_submit.addActionListener(new ActionListener() {
 			
