@@ -104,7 +104,7 @@ public class Sender {
 	}
 	
 	public static void sendTo2() throws UnknownHostException, IOException {
-		Socket s = new Socket("139.199.77.144", 8079);
+		Socket s = new Socket("139.199.77.144", 5542);
 		PrintStream ps = new PrintStream(s.getOutputStream(), true);
 		FileReader fr = new FileReader(new File("login.xml"));
 		BufferedReader br = new BufferedReader(fr);

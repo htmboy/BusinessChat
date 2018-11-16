@@ -1,4 +1,3 @@
-
 import java.awt.Button;
 import java.awt.Component;
 import java.awt.FlowLayout;
@@ -19,21 +18,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import javax.swing.JTextField;
 import javax.xml.transform.TransformerException;
-=======
->>>>>>> parent of 6b5a536... 201811131
-=======
->>>>>>> parent of 6b5a536... 201811131
-=======
->>>>>>> parent of 6b5a536... 201811131
-=======
->>>>>>> parent of 6b5a536... 201811131
-
 public class Login extends JPanel{
 	private JFrame jf;
 	private GridBagLayout gbl = new GridBagLayout();
@@ -54,21 +40,9 @@ public class Login extends JPanel{
 		jf = new JFrame("µÇÂ½");
 		jf.setBounds(0, 0, 1000, 300);
 		jf.setContentPane(this);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf.setResizable(false);
 //		jf.setDefaultLookAndFeelDecorated(true);
-=======
->>>>>>> parent of 6b5a536... 201811131
-=======
->>>>>>> parent of 6b5a536... 201811131
-=======
->>>>>>> parent of 6b5a536... 201811131
-=======
->>>>>>> parent of 6b5a536... 201811131
 		jf.setVisible(true);
 		jb_submit.addActionListener(new ActionListener() {
 			
