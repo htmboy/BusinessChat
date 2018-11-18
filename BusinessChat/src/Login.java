@@ -23,12 +23,12 @@ import javax.xml.transform.TransformerException;
 public class Login extends JPanel{
 	private JFrame jf;
 	private GridBagLayout gbl = new GridBagLayout();
-	private JButton but;
+	private JButton but, jb_submit;
 	private JLabel jl_username;
 	private JLabel jl_password;
 	private JTextArea jta;
-	private JPasswordField jpf;
-	
+	private JTextField jtf_username;
+	private JPasswordField jpf, jpf_password;
 	public Login() {
 		super();
 		GridBagConstraints constraints;
@@ -59,7 +59,7 @@ public class Login extends JPanel{
 				}
 				try {
 					Sender.toXml(jtf_username.getText(),jpf_password.getPassword().toString());
-					Sender.sendTo();
+					Sender.sendTo2();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
