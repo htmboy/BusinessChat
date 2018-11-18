@@ -62,7 +62,11 @@ public class Login extends JPanel{
 				}
 				try {
 					Sender.toXml(jtf_username.getText(),jpf_password.getPassword().toString());
-					Sender.sendTo2();
+					if(Sender.login()) {
+						
+						jf.setVisible(false);
+						Sender.sendTo();
+					}
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -70,10 +74,7 @@ public class Login extends JPanel{
 					catch (TransformerException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
-				
-				System.out.println(jpf_password.getPassword());
-					
+				}	
 			}
 		});
 	}
@@ -92,5 +93,6 @@ public class Login extends JPanel{
 		gbl.setConstraints(component, constraints);
 		add(component);
 	}
+	
 	
 }

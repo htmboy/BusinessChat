@@ -8,6 +8,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintStream;
@@ -51,10 +52,6 @@ public class Sender {
 			
 			doc.appendChild(root);
 			
-//			NodeList list = root.getChildNodes();
-//			for(int i = 0; i < list.getLength(); i++) {
-//				System.out.println(list.item(i).getNodeName() + ":" + list.item(i).getTextContent());
-//			}
 			TransformerFactory tff = TransformerFactory.newInstance();
 			Transformer tf = tff.newTransformer();
 			tf.transform(new DOMSource(doc), new StreamResult(new File("login.xml")));
@@ -66,59 +63,70 @@ public class Sender {
 		return null;
 	}
 	
-	public static void sendTo() throws IOException {
-		try {
+	public static boolean login() throws IOException {
 			URL url = new URL("http://139.199.77.144:8080");
 			URLConnection con = url.openConnection();
+			
+			// 设置头信息
 			con.setDoOutput(true);
 			con.setRequestProperty("Pragma", "no-cache");
 			con.setRequestProperty("Cache-control", "no-cache");
 			con.setRequestProperty("Content-Type", "text/html");
+			
+			// 得到输出流
 			OutputStreamWriter osw = new OutputStreamWriter(con.getOutputStream());
-			FileReader fr = new FileReader(new File("login.xml"));
-			BufferedReader br = new BufferedReader(fr);
+			
+			// 读取文件
+			BufferedReader br = new BufferedReader(new FileReader("login.xml"));
+			
+			// 缓存
 			StringBuilder sb = new StringBuilder();
-			String ch = "";
-			while((ch = br.readLine()) != null) {
-				sb.append(ch);
-				
+			String str;
+			while((str = br.readLine()) != null) {
+				sb.append(str);
 			}
-			System.out.println(sb.toString());
-			fr.close();
+			
+			
+//			System.out.println(sb.toString());
 			br.close();
 			osw.write(new String(sb));
-			osw.flush();
 			osw.close();
-			BufferedReader br1 = new BufferedReader(new InputStreamReader(con.getInputStream()));
-			while((ch = br1.readLine()) != null) {
-				System.out.println(ch);
-			}
-			br1.close();
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+			
+			// 接收反馈数据
+			BufferedReader brin = new BufferedReader(new InputStreamReader(con.getInputStream(), "utf-8"));
+//			while((str = brin.readLine()) != null) {
+//				System.out.println(brin.readLine());
+//			}
+			if(brin.readLine().equals("1"))
+				return true;
+			else
+				return false;
 	}
 	
-	public static void sendTo2() throws UnknownHostException, IOException {
-		Socket s = new Socket("139.199.77.144", 5542);
+	public static void sendTo() throws UnknownHostException, IOException {
+		Socket s = new Socket("139.199.77.144", 1000);
+		
+		// 发送数据 
 		PrintStream ps = new PrintStream(s.getOutputStream(), true);
-		FileReader fr = new FileReader(new File("login.xml"));
-		BufferedReader br = new BufferedReader(fr);
 		
-		int len;
-		String ch;
-		ps.println("Pragma: no-cache");
-		while((len = br.read()) != -1) {
-			ps.println(len);
+		
+		// 输入流
+		BufferedReader brin = new BufferedReader(new InputStreamReader(System.in));
+		
+		// 接收数据
+		BufferedReader bris = new BufferedReader(new InputStreamReader(s.getInputStream(), "utf-8"));
+		
+		String str;
+		
+		while((str = brin.readLine()) != null) {
+			ps.println(new String(str.getBytes(),"utf-8"));
+			System.out.println(bris.readLine());
+			if(str.equals("886")) {
+				s.close();
+				System.exit(0);
+			}
+			
 		}
-		
-		BufferedReader br1 = new BufferedReader(new InputStreamReader(s.getInputStream()));
-		while((ch = br1.readLine()) != null) {
-			System.out.println(ch);
-		}
-		
 		s.close();
 	}
 }
